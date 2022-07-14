@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Steve Brown's blog </title>
+        <link>https://blog.brown.bg</link>
+        <description>Articles and photos about C# and extreme sports</description>
+        <lastBuildDate>Thu, 14 Jul 2022 20:48:57 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <image>
+            <title>Steve Brown's blog </title>
+            <url>https://vuejs.org/images/logo.png</url>
+            <link>https://blog.brown.bg</link>
+        </image>
+        <copyright>Copyright (c) 2021-present, Yuxi (Evan) You and blog contributors</copyright>
+        <item>
+            <title><![CDATA[Initial VitePress Setup]]></title>
+            <link>https://blog.brown.bg/posts/test.html</link>
+            <guid>https://blog.brown.bg/posts/test.html</guid>
+            <pubDate>Thu, 14 Jul 2022 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Based on the official VueJs blog, this is a SSG site</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>Based on the official VueJs blog, this is a SSG site</p><hr><h2 id="setup" tabindex="-1">Setup <a class="header-anchor" href="#setup" aria-hidden="true">#</a></h2><p>Take the VueJs blog repo and change as needed. Live reloads like a dream</p></div>]]></content:encoded>
+        </item>
+    </channel>
+</rss>
