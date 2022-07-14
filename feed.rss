@@ -4,7 +4,7 @@
         <title>Steve Brown's blog </title>
         <link>https://brown.bg</link>
         <description>Articles and photos about C# and extreme sports</description>
-        <lastBuildDate>Thu, 14 Jul 2022 21:04:19 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 14 Jul 2022 21:09:33 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -21,7 +21,7 @@
             <pubDate>Thu, 14 Jul 2022 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>Based on the official VueJs blog, this is a SSG site</p>
 ]]></description>
-            <content:encoded><![CDATA[<div><p>Based on the official VueJs blog, this is a SSG site</p><hr><h2 id="setup" tabindex="-1">Setup <a class="header-anchor" href="#setup" aria-hidden="true">#</a></h2><p>Take the VueJs blog repo and change as needed. Live reloads like a dream</p></div>]]></content:encoded>
+            <content:encoded><![CDATA[<div><p>Based on the official VueJs blog, this is a SSG site</p><hr><h2 id="setup" tabindex="-1">Setup <a class="header-anchor" href="#setup" aria-hidden="true">#</a></h2><p>Take the VueJs blog repo and change as needed. Live reloads like a dream. Added a CNAME now</p></div>]]></content:encoded>
         </item>
     </channel>
 </rss>
