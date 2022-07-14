@@ -1,0 +1,20 @@
+{
+    "name": "brownblog",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "dev": "vitepress",
+        "build": "vitepress build && node ./.vitepress/genFeed",
+        "serve": "vitepress serve"
+    },
+    "devDependencies": {
+        "@tailwindcss/typography": "^0.5.0",
+        "feed": "^4.2.1",
+        "gray-matter": "^4.0.2",
+        "vitepress": "^0.21.6"
+    },
+    "dependencies": {
+        "tailwindcss": "^3.0.2"
+    }
+}
