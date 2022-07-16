@@ -11,4 +11,4 @@ Based on the official VueJs blog, this is a SSG site
 
 ## Setup
 
-Take the VueJs blog repo and change as needed. Live reloads like a dream. Added a CNAME now
+Take the VueJs blog repo and change as needed. Live reloads like a dream. Added a CNAME now and checking to see if it stays
