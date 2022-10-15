@@ -1,6 +1,6 @@
 ---
 title: Dockerless docker builds in Github Actions with Dotnet 7
-date: "2022-010-14"
+date: 2022-10-14
 author: Stephen Brown
 twitter: '@evolvedlight'
 ---
@@ -112,7 +112,7 @@ Under "Manage Actions access" add your repository with access.
 
 In the end it'll look like this:
 
-![github permissions](./github_actions_permission.png)
+![github permissions](/images/github_actions_permission.png)
 
 Finally, rerun the action and it should work.
 
