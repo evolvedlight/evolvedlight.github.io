@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-    <channel>
-        <title>Steve Brown's blog </title>
-        <link>https://brown.bg</link>
-        <description>Articles and photos about C# and extreme sports</description>
-        <lastBuildDate>Sat, 15 Oct 2022 13:26:06 GMT</lastBuildDate>
-        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
-        <generator>https://github.com/jpmonette/feed</generator>
-        <language>en</language>
-        <image>
-            <title>Steve Brown's blog </title>
-            <url>https://vuejs.org/images/logo.png</url>
-            <link>https://brown.bg</link>
-        </image>
-        <copyright>Copyright (c) 2021-present, Yuxi (Evan) You and blog contributors</copyright>
-        <item>
-            <title><![CDATA[Dockerless docker builds in Github Actions with Dotnet 7]]></title>
-            <link>https://brown.bg/posts/github-actions-net7-docker.html</link>
-            <guid>https://brown.bg/posts/github-actions-net7-docker.html</guid>
-            <pubDate>Fri, 14 Oct 2022 12:00:00 GMT</pubDate>
-            <description><![CDATA[<p>How to setup a github build action that uses the dockerless build in .Net 7</p>
-]]></description>
-            <content:encoded><![CDATA[<div><p>How to setup a github build action that uses the dockerless build in .Net 7</p><hr><h2 id="background" tabindex="-1">Background <a class="header-anchor" href="#background" aria-hidden="true">#</a></h2><p>For me, one of the slowest parts of the fast build-test-deploy cycle was always waiting for docker builds to run. Especially with the practise of docker-in-docker builds which without special magic wouldn&#39;t cache anything, it could often take several minutes to create a docker application. .Net 7 promises to offer an alternative to this for simple apps - let&#39;s take a dive in.</p><h3 id="setup" tabindex="-1">Setup <a class="header-anchor" href="#setup" aria-hidden="true">#</a></h3><p>You&#39;ll need .Net 7 for this, which isn&#39;t currently released at time of writing. However, in theory you can take a .Net 6 application and use the .Net 7 SDK to build it already, however YMMV.</p><p>With this installed, let&#39;s create a new app and get started! We&#39;re following along with <a href="https://devblogs.microsoft.com/dotnet/announcing-builtin-container-support-for-the-dotnet-sdk/" target="_blank" rel="noopener noreferrer">https://devblogs.microsoft.com/dotnet/announcing-builtin-container-support-for-the-dotnet-sdk/</a> but with some changes</p><h3 id="basic-app" tabindex="-1">Basic app <a class="header-anchor" href="#basic-app" aria-hidden="true">#</a></h3><div class="language-bash"><pre><code>dotnet new webapi -o dockerless-docker
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dockerless docker builds in Github Actions with Dotnet 7 | Steve Browns blog</title>
+    <meta name="description" content="Articles and photos about C# and extreme sports">
+    <link rel="stylesheet" href="/assets/style.3be027f1.css">
+    <link rel="modulepreload" href="/assets/framework.4c5e7916.js">
+    <link rel="modulepreload" href="/assets/plugin-vue_export-helper.21dcd24c.js">
+    <link rel="modulepreload" href="/assets/posts_github-actions-net7-docker.md.8f2ac059.lean.js">
+    <link rel="modulepreload" href="/assets/app.40cfb9a8.js">
+    
+    <meta name="twitter:site" content="@evolvedlight">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Dockerless docker builds in Github Actions with Dotnet 7 | Steve Browns blog">
+  <meta property="og:title" content="Dockerless docker builds in Github Actions with Dotnet 7 | Steve Browns blog">
+  </head>
+  <body>
+    <div id="app"><div class="antialiased"><div class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0"><nav class="flex justify-between items-center py-10 font-bold"><a class="text-xl" href="/" aria-label="Steve Brown&#39;s blog"><img class="inline-block mr-2" style="width:36px;height:31px;" alt="logo" src="/logo.webp"><span class="hidden md:inline">Steve Brown&#39;s blog</span></a><div class="text-sm text-gray-500 leading-5"><a class="hover:text-gray-700" href="https://github.com/evolvedlight/blog" target="_blank" rel="noopener"><span class="hidden sm:inline">GitHub </span>Source</a><span class="mr-2 ml-2">·</span><a class="hover:text-gray-700" href="/feed.rss">RSS<span class="hidden sm:inline"> Feed</span></a><span class="mr-2 ml-2">·</span><a class="hover:text-gray-700" href="https://github.com/evolvedlight/curriculum-vitae/releases/latest/download/StephenBrownCV.pdf" target="_blank" rel="noopener">CV</a></div></nav></div><main class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0"><article class="xl:divide-y xl:divide-gray-200"><header class="pt-6 xl:pb-10 space-y-1 text-center"><dl><dt class="sr-only">Published on</dt><dd class="text-base leading-6 font-medium text-gray-500"><time datetime="2022-10-14T12:00:00.000Z">October 14, 2022</time></dd></dl><h1 class="text-3xl leading-9 font-extrabold text-gray-900 tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">Dockerless docker builds in Github Actions with Dotnet 7</h1></header><div class="divide-y xl:divide-y-0 divide-gray-200 xl:grid xl:grid-cols-4 xl:gap-x-10 pb-16 xl:pb-20" style="grid-template-rows:auto 1fr;"><dl class="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-gray-200"><dt class="sr-only">Authors</dt><dd><ul class="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-8"><li class="flex items-center space-x-2"><!----><dl class="text-sm font-medium leading-5 whitespace-nowrap"><dt class="sr-only">Name</dt><dd class="text-gray-900">Stephen Brown</dd><dt class="sr-only">Twitter</dt><dd><a href="https://twitter.com/@evolvedlight" target="_blank" rel="noopnener noreferrer" class="link">@evolvedlight</a></dd></dl></li></ul></dd></dl><div class="divide-y divide-gray-200 xl:pb-0 xl:col-span-3 xl:row-span-2"><div style="position:relative;" class="prose max-w-none pt-10 pb-8"><div><p>How to setup a github build action that uses the dockerless build in .Net 7</p><hr><h2 id="background" tabindex="-1">Background <a class="header-anchor" href="#background" aria-hidden="true">#</a></h2><p>For me, one of the slowest parts of the fast build-test-deploy cycle was always waiting for docker builds to run. Especially with the practise of docker-in-docker builds which without special magic wouldn&#39;t cache anything, it could often take several minutes to create a docker application. .Net 7 promises to offer an alternative to this for simple apps - let&#39;s take a dive in.</p><h3 id="setup" tabindex="-1">Setup <a class="header-anchor" href="#setup" aria-hidden="true">#</a></h3><p>You&#39;ll need .Net 7 for this, which isn&#39;t currently released at time of writing. However, in theory you can take a .Net 6 application and use the .Net 7 SDK to build it already, however YMMV.</p><p>With this installed, let&#39;s create a new app and get started! We&#39;re following along with <a href="https://devblogs.microsoft.com/dotnet/announcing-builtin-container-support-for-the-dotnet-sdk/" target="_blank" rel="noopener noreferrer">https://devblogs.microsoft.com/dotnet/announcing-builtin-container-support-for-the-dotnet-sdk/</a> but with some changes</p><h3 id="basic-app" tabindex="-1">Basic app <a class="header-anchor" href="#basic-app" aria-hidden="true">#</a></h3><div class="language-bash"><pre><code>dotnet new webapi -o dockerless-docker
 <span class="token builtin class-name">cd</span> dockerless-docker
 </code></pre></div><p>We also need to do a couple of things: because .Net 7 isn&#39;t out yet, we need a globals file to tell the github actions to use it</p><p>That gives us our basic app - let&#39;s add a github actions build for it now, by adding the following:</p><div class="language-json"><pre><code><span class="token punctuation">{</span>
     <span class="token property">&quot;sdk&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
@@ -74,16 +70,9 @@
 docker tag dockerless-docker:1.0.0 ghcr.io/evolvedlight/dockerless-docker:1.0.0
 docker login ghcr.io -u &lt;your username&gt;
 </code></pre></div><p>Enter a Personal access token that you can create on your github profile page, and finally push the image:</p><div class="language-"><pre><code>docker push ghcr.io/evolvedlight/dockerless-docker:1.0.0
-</code></pre></div><p>Now go to your packages page, for me that&#39;s <a href="https://github.com/evolvedlight?tab=packages" target="_blank" rel="noopener noreferrer">https://github.com/evolvedlight?tab=packages</a>. Click on the new package page that was created, and then go to the settings for it (for me <a href="https://github.com/users/evolvedlight/packages/container/dockerless-docker/settings" target="_blank" rel="noopener noreferrer">https://github.com/users/evolvedlight/packages/container/dockerless-docker/settings</a>)</p><p>Under &quot;Manage Actions access&quot; add your repository with access.</p><p>In the end it&#39;ll look like this:</p><p><img src="/images/github_actions_permission.png" alt="github permissions"></p><p>Finally, rerun the action and it should work.</p><p>In the next blob post we&#39;ll look at fixing the above docker build to push with the right version numbers and tags</p></div>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Initial VitePress Setup]]></title>
-            <link>https://brown.bg/posts/initial.html</link>
-            <guid>https://brown.bg/posts/initial.html</guid>
-            <pubDate>Thu, 14 Jul 2022 12:00:00 GMT</pubDate>
-            <description><![CDATA[<p>Based on the official VueJs blog, this is a SSG site</p>
-]]></description>
-            <content:encoded><![CDATA[<div><p>Based on the official VueJs blog, this is a SSG site</p><hr><h2 id="setup" tabindex="-1">Setup <a class="header-anchor" href="#setup" aria-hidden="true">#</a></h2><p>Take the VueJs blog repo and change as needed. Live reloads like a dream. Added a CNAME now and checking to see if it stays</p></div>]]></content:encoded>
-        </item>
-    </channel>
-</rss>
+</code></pre></div><p>Now go to your packages page, for me that&#39;s <a href="https://github.com/evolvedlight?tab=packages" target="_blank" rel="noopener noreferrer">https://github.com/evolvedlight?tab=packages</a>. Click on the new package page that was created, and then go to the settings for it (for me <a href="https://github.com/users/evolvedlight/packages/container/dockerless-docker/settings" target="_blank" rel="noopener noreferrer">https://github.com/users/evolvedlight/packages/container/dockerless-docker/settings</a>)</p><p>Under &quot;Manage Actions access&quot; add your repository with access.</p><p>In the end it&#39;ll look like this:</p><p><img src="/images/github_actions_permission.png" alt="github permissions"></p><p>Finally, rerun the action and it should work.</p><p>In the next blob post we&#39;ll look at fixing the above docker build to push with the right version numbers and tags</p></div></div></div><footer class="text-sm font-medium leading-5 divide-y divide-gray-200 xl:col-start-1 xl:row-start-2"><!----><div class="py-8"><h2 class="text-xs tracking-wide uppercase text-gray-500"> Previous Article </h2><div class="link"><a href="/posts/initial.html">Initial VitePress Setup</a></div></div><div class="pt-8"><a class="link" href="/">← Back to the blog</a></div></footer></div></article></main></div></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"74a99477\",\"posts_github-actions-net7-docker.md\":\"8f2ac059\",\"posts_initial.md\":\"ab68d4e2\"}")</script>
+    <script type="module" async src="/assets/app.40cfb9a8.js"></script>
+    
+  </body>
+</html>
