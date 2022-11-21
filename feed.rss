@@ -4,7 +4,7 @@
         <title>Steve Brown's blog </title>
         <link>https://brown.bg</link>
         <description>Articles and photos about C# and extreme sports</description>
-        <lastBuildDate>Sat, 15 Oct 2022 13:26:06 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 21 Nov 2022 16:23:41 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -14,6 +14,13 @@
             <link>https://brown.bg</link>
         </image>
         <copyright>Copyright (c) 2021-present, Yuxi (Evan) You and blog contributors</copyright>
+        <item>
+            <title><![CDATA[Coding on the ipad]]></title>
+            <link>https://brown.bg/posts/coding-on-the-ipad.html</link>
+            <guid>https://brown.bg/posts/coding-on-the-ipad.html</guid>
+            <pubDate>Mon, 21 Nov 2022 12:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<div><p>This is a post showing show to code/update this blog from the ipad mini using a handy bluetooth keyboard. Easier than it looks!</p></div>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Dockerless docker builds in Github Actions with Dotnet 7]]></title>
             <link>https://brown.bg/posts/github-actions-net7-docker.html</link>
