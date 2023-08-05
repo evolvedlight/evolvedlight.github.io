@@ -1,24 +1,20 @@
-name: Deploy
-
+name: Build Vitepress Site with pnpm
 on:
   push:
     branches:
       - main
-
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: yarn
-      - run: yarn install --frozen-lockfile
-
-      - name: Build
-        run: yarn build
-
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install pnpm
+        run: npm install -g pnpm
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build site
+        run: pnpm run build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
