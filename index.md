@@ -1,4 +1,5 @@
 ---
-title: Steve Brown's blog
-subtext: Articles and photos about C# and extreme sports
+title: steve's blog
+subtext: c#, sport, paragliding
+index: true
 ---
