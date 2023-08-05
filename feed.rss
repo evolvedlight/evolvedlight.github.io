@@ -4,7 +4,7 @@
         <title>Steve@brown.bg</title>
         <link>https://brown.bg</link>
         <description>Steve's blog</description>
-        <lastBuildDate>Sat, 05 Aug 2023 12:46:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 05 Aug 2023 13:23:18 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -15,10 +15,60 @@
         </image>
         <copyright>Copyright (c) 2021-present, Steve Brown</copyright>
         <item>
+            <title><![CDATA[Creating Kerberos secured connections from Dotnet on Linux]]></title>
+            <link>https://brown.bg/posts/dotnet-kerberos</link>
+            <guid>https://brown.bg/posts/dotnet-kerberos</guid>
+            <pubDate>Sat, 05 Aug 2023 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<p>For the last few years at my workplace we've been using Kerberos authentication to connect to the on-prem SQL Server databases. On Windows this just worked like magic, as the services ran as a Windows domain user and so could connect to the database without any additional configuration. However, when moving to Kubernetes and Linux systems, this didn't work out of the box.</p>
+<p>Our initial solution was following this <a href="https://cloud.redhat.com/blog/kerberos-sidecar-container" target="_blank" rel="noreferrer">red hat blog post</a> which details how to setup a sidecar which keeps a kerberos token valid. This worked for a number of years but did have some problems:</p>
+<ul>
+<li>We ran 100+ containers and each needed a sidecar - this cost a few gigabytes of memory and some CPU allowance</li>
+<li>When the token was being refreshed, it was not available for a few milliseconds</li>
+<li>It was extra hassle and created slightly larger deployments and more complex Deployment configs.</li>
+</ul>
+<p>When investigating a seperate issue (dotnet 7 caused some transient kerberos faults) we realised that actually the whole sidecar approach was completely unneccessary! This post will give the minimum you actually need to call Keberos services from Linux</p>
+<ol>
+<li>You'll need to add the keberos tools to your docker image. Maybe you have a base image you share, maybe not. For alpine images:</li>
+</ol>
+<p><code>RUN apk add --no-cache krb5</code></p>
+<ol start="2">
+<li>You'll need to have a krb5 configuration that points to your domain controller. Microsoft has an <a href="https://learn.microsoft.com/en-us/sql/connect/jdbc/using-kerberos-integrated-authentication-to-connect-to-sql-server?view=sql-server-ver16#creating-a-kerberos-configuration-file" target="_blank" rel="noreferrer">example</a></li>
+</ol>
+<p>For example, ours looks like this:</p>
+<div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #A6ACCD">[logging]</span></span>
+<span class="line"><span style="color: #A6ACCD">default</span></span>
+<span class="line"><span style="color: #A6ACCD"></span></span>
+<span class="line"><span style="color: #A6ACCD">[libdefaults]</span></span>
+<span class="line"><span style="color: #A6ACCD">...standard things here</span></span>
+<span class="line"><span style="color: #A6ACCD">default_client_keytab_name=/krb5/client.keytab</span></span>
+<span class="line"><span style="color: #A6ACCD">default_keytab_name=/krb5/krb5.keytab</span></span>
+<span class="line"><span style="color: #A6ACCD">default_ccache_name=FILE:/dev/shm/ccache</span></span>
+<span class="line"><span style="color: #A6ACCD">default_realm = EXAMPLE.COM</span></span>
+<span class="line"><span style="color: #A6ACCD"></span></span>
+<span class="line"><span style="color: #A6ACCD">[realms]</span></span>
+<span class="line"><span style="color: #A6ACCD">EXAMPLE.COM = {</span></span>
+<span class="line"><span style="color: #A6ACCD">    kdc = ADS.EXAMPLE.COM:88</span></span>
+<span class="line"><span style="color: #A6ACCD">}</span></span></code></pre>
+</div><p>You can then add this to the docker image like</p>
+<div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #A6ACCD">RUN mkdir /krb5 &amp;&amp; mkdir /customkrb5</span></span>
+<span class="line"><span style="color: #A6ACCD">COPY krb5.conf /customkrb5/krb5.conf</span></span>
+<span class="line"><span style="color: #A6ACCD">ENV KRB5_CONFIG=/customkrb5/krb5.conf</span></span></code></pre>
+</div><p>We put it in a custom folder as some container systems have the limitation that mounting a directory overrides all files in that directory (we'll do this later)</p>
+<ol start="3">
+<li>
+<p>You then need a keytab added to the image. You will probably want this done at runtime. Get a keytab (maybe off your AD system administrators, maybe you create it yourself with ktutil) and make sure this ends up at /krb5/client.keytab. We use kubernetes secrets and volume mounts for this</p>
+</li>
+<li>
+<p>Connect to the database using <code>Integrated Security=true</code>. This should now just work. You can check by calling <code>klist</code> inside the container to see that it has a ticket</p>
+</li>
+</ol>
+]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[TV7 (IPTV from Init7) with Dream Machine and Unity Dream machine]]></title>
             <link>https://brown.bg/posts/init7-tv7</link>
             <guid>https://brown.bg/posts/init7-tv7</guid>
-            <pubDate>Sat, 05 Aug 2023 00:00:00 GMT</pubDate>
+            <pubDate>Fri, 04 Aug 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<p>If you're an Init7 TV customer and you want to use the Unify Dream Machine as your IPTV receiver, I figured it out for you! Here's a step-by-step guide to help you get started.</p>
 <h2 id="step-1-update-to-the-newest-dream-machine" tabindex="-1">Step 1: Update to the Newest Dream Machine <a class="header-anchor" href="#step-1-update-to-the-newest-dream-machine" aria-label="Permalink to &quot;Step 1: Update to the Newest Dream Machine&quot;">&ZeroWidthSpace;</a></h2>
 <p>Before you begin, make sure your Unify Dream Machine is updated to the latest firmware version. You can check for updates by logging into the Unify Dream Machine web interface and navigating to the &quot;Settings&quot; page.
