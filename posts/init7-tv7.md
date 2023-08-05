@@ -1,6 +1,6 @@
 ---
 title: TV7 (IPTV from Init7) with Dream Machine and Unity Dream machine
-date: 2023-08-05
+date: 2023-08-04
 author: Stephen Brown
 ---
 
