@@ -1,96 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
-        <title>Steve Brown's blog </title>
+        <title>Steve@brown.bg</title>
         <link>https://brown.bg</link>
-        <description>Articles and photos about C# and extreme sports</description>
-        <lastBuildDate>Mon, 21 Nov 2022 16:23:41 GMT</lastBuildDate>
+        <description>Steve's blog</description>
+        <lastBuildDate>Sat, 05 Aug 2023 12:46:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <image>
-            <title>Steve Brown's blog </title>
-            <url>https://vuejs.org/images/logo.png</url>
+            <title>Steve@brown.bg</title>
+            <url>https://brown.bg/logo.webp</url>
             <link>https://brown.bg</link>
         </image>
-        <copyright>Copyright (c) 2021-present, Yuxi (Evan) You and blog contributors</copyright>
+        <copyright>Copyright (c) 2021-present, Steve Brown</copyright>
         <item>
-            <title><![CDATA[Coding on the ipad]]></title>
-            <link>https://brown.bg/posts/coding-on-the-ipad.html</link>
-            <guid>https://brown.bg/posts/coding-on-the-ipad.html</guid>
-            <pubDate>Mon, 21 Nov 2022 12:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[<div><p>This is a post showing show to code/update this blog from the ipad mini using a handy bluetooth keyboard. Easier than it looks!</p></div>]]></content:encoded>
+            <title><![CDATA[TV7 (IPTV from Init7) with Dream Machine and Unity Dream machine]]></title>
+            <link>https://brown.bg/posts/init7-tv7</link>
+            <guid>https://brown.bg/posts/init7-tv7</guid>
+            <pubDate>Sat, 05 Aug 2023 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<p>If you're an Init7 TV customer and you want to use the Unify Dream Machine as your IPTV receiver, I figured it out for you! Here's a step-by-step guide to help you get started.</p>
+<h2 id="step-1-update-to-the-newest-dream-machine" tabindex="-1">Step 1: Update to the Newest Dream Machine <a class="header-anchor" href="#step-1-update-to-the-newest-dream-machine" aria-label="Permalink to &quot;Step 1: Update to the Newest Dream Machine&quot;">&ZeroWidthSpace;</a></h2>
+<p>Before you begin, make sure your Unify Dream Machine is updated to the latest firmware version. You can check for updates by logging into the Unify Dream Machine web interface and navigating to the &quot;Settings&quot; page.
+Your version needs to be higher than <a href="https://community.ui.com/releases/UniFi-Network-Application-7-4-156/15ac6260-9cd1-4ac3-a91c-4880c1c87882" target="_blank" rel="noreferrer">&quot;UniFi Network Application 7.4.156&quot;</a>.</p>
+<h2 id="step-2-enable-the-feature" tabindex="-1">Step 2: Enable the feature <a class="header-anchor" href="#step-2-enable-the-feature" aria-label="Permalink to &quot;Step 2: Enable the feature&quot;">&ZeroWidthSpace;</a></h2>
+<p>You now have a new setup that you can do on the Network application:</p>
+<p><img src="/images/network-iptv.png" alt="udpxy"></p>
+<p>You can also see the <a href="https://help.ui.com/hc/en-us/articles/14957610078615-UniFi-Gateway-IGMP-Proxy-IPTV-#:~:text=How%20Does%20it%20Work%3F,box%20that%20receives%20the%20traffic." target="_blank" rel="noreferrer">basic unifi docs</a></p>
+<p>You should now already be able to watch TV7 though VLC using this link: <a href="https://www.init7.net/en/support/faq/TV-andere-Geraete/" target="_blank" rel="noreferrer">https://www.init7.net/en/support/faq/TV-andere-Geraete/</a></p>
+<p><img src="/images/vlc-tv7.png" alt="udpxy"></p>
+<p>However, I wanted to watch on a Samsung TV and none of the apps supported these multicast IPTV streams. So, I had to:</p>
+<h2 id="step-3-install-agrrh-udpxy" tabindex="-1">Step 3: Install agrrh-udpxy. <a class="header-anchor" href="#step-3-install-agrrh-udpxy" aria-label="Permalink to &quot;Step 3: Install agrrh-udpxy.&quot;">&ZeroWidthSpace;</a></h2>
+<p>I installed this as a docker image on a syntology NAS.</p>
+<p>The following settings worked for me:
+image: agrrh/udpxy:latest
+network: host
+cmd: -v -T -p 4022</p>
+<p>You can then go to your nas drive on port 4022, URL /status. For example mine is <a href="http://nasdrive:4022/status" target="_blank" rel="noreferrer">http://nasdrive:4022/status</a> and I see:</p>
+<p><img src="/images/udpxy.png" alt="udpxy"></p>
+<h2 id="step-4-create-your-own-playlist-that-forwards-to-your-udprxy-instance-instead-of-the-original-network-stream" tabindex="-1">Step 4: Create your own playlist that forwards to your udprxy instance instead of the original network stream <a class="header-anchor" href="#step-4-create-your-own-playlist-that-forwards-to-your-udprxy-instance-instead-of-the-original-network-stream" aria-label="Permalink to &quot;Step 4: Create your own playlist that forwards to your udprxy instance instead of the original network stream&quot;">&ZeroWidthSpace;</a></h2>
+<p>You can do this by opening up the m3u file and relacing the URLs with the link to your local instance. For example, mine is here:
+<a href="https://gist.github.com/evolvedlight/e9b2a0145840ba5385478a3075aa815a" target="_blank" rel="noreferrer">https://gist.github.com/evolvedlight/e9b2a0145840ba5385478a3075aa815a</a></p>
+<h2 id="step-5-open-this-in-a-iptv-app" tabindex="-1">Step 5: Open this in a IPTV app. <a class="header-anchor" href="#step-5-open-this-in-a-iptv-app" aria-label="Permalink to &quot;Step 5: Open this in a IPTV app.&quot;">&ZeroWidthSpace;</a></h2>
+<p>Personally I used one called &quot;m3u player&quot; but there are many out there. You'll then also be able to go to your udpxy status page and see the running stream there.</p>
+]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Dockerless docker builds in Github Actions with Dotnet 7]]></title>
-            <link>https://brown.bg/posts/github-actions-net7-docker.html</link>
-            <guid>https://brown.bg/posts/github-actions-net7-docker.html</guid>
-            <pubDate>Fri, 14 Oct 2022 12:00:00 GMT</pubDate>
+            <link>https://brown.bg/posts/github-actions-net7-docker</link>
+            <guid>https://brown.bg/posts/github-actions-net7-docker</guid>
+            <pubDate>Fri, 14 Oct 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[<p>How to setup a github build action that uses the dockerless build in .Net 7</p>
 ]]></description>
-            <content:encoded><![CDATA[<div><p>How to setup a github build action that uses the dockerless build in .Net 7</p><hr><h2 id="background" tabindex="-1">Background <a class="header-anchor" href="#background" aria-hidden="true">#</a></h2><p>For me, one of the slowest parts of the fast build-test-deploy cycle was always waiting for docker builds to run. Especially with the practise of docker-in-docker builds which without special magic wouldn&#39;t cache anything, it could often take several minutes to create a docker application. .Net 7 promises to offer an alternative to this for simple apps - let&#39;s take a dive in.</p><h3 id="setup" tabindex="-1">Setup <a class="header-anchor" href="#setup" aria-hidden="true">#</a></h3><p>You&#39;ll need .Net 7 for this, which isn&#39;t currently released at time of writing. However, in theory you can take a .Net 6 application and use the .Net 7 SDK to build it already, however YMMV.</p><p>With this installed, let&#39;s create a new app and get started! We&#39;re following along with <a href="https://devblogs.microsoft.com/dotnet/announcing-builtin-container-support-for-the-dotnet-sdk/" target="_blank" rel="noopener noreferrer">https://devblogs.microsoft.com/dotnet/announcing-builtin-container-support-for-the-dotnet-sdk/</a> but with some changes</p><h3 id="basic-app" tabindex="-1">Basic app <a class="header-anchor" href="#basic-app" aria-hidden="true">#</a></h3><div class="language-bash"><pre><code>dotnet new webapi -o dockerless-docker
-<span class="token builtin class-name">cd</span> dockerless-docker
-</code></pre></div><p>We also need to do a couple of things: because .Net 7 isn&#39;t out yet, we need a globals file to tell the github actions to use it</p><p>That gives us our basic app - let&#39;s add a github actions build for it now, by adding the following:</p><div class="language-json"><pre><code><span class="token punctuation">{</span>
-    <span class="token property">&quot;sdk&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">&quot;version&quot;</span><span class="token operator">:</span> <span class="token string">&quot;7.0.100-rc.2.22477.23&quot;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre></div><p>We&#39;ll also need to add a reference to this tool:</p><div class="language-bash"><pre><code>dotnet <span class="token function">add</span> package Microsoft.NET.Build.Containers
-</code></pre></div><p>Now, add a github actions to <code>.github/workflows/whatever.yml</code></p><div class="language-yaml"><pre><code><span class="token key atrule">name</span><span class="token punctuation">:</span> Create and publish a Docker image
-
-<span class="token key atrule">on</span><span class="token punctuation">:</span>
-  <span class="token key atrule">push</span><span class="token punctuation">:</span>
-    <span class="token key atrule">branches</span><span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token string">&quot;*&quot;</span> <span class="token punctuation">]</span>
-  <span class="token key atrule">pull_request</span><span class="token punctuation">:</span>
-    <span class="token key atrule">branches</span><span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token string">&quot;main&quot;</span> <span class="token punctuation">]</span>
-
-
-<span class="token key atrule">env</span><span class="token punctuation">:</span>
-  <span class="token key atrule">REGISTRY</span><span class="token punctuation">:</span> ghcr.io
-  <span class="token key atrule">IMAGE_NAME</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> github.repository <span class="token punctuation">}</span><span class="token punctuation">}</span>
-
-<span class="token key atrule">jobs</span><span class="token punctuation">:</span>
-  <span class="token key atrule">build-and-push-image</span><span class="token punctuation">:</span>
-    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>latest
-    <span class="token key atrule">permissions</span><span class="token punctuation">:</span>
-      <span class="token key atrule">contents</span><span class="token punctuation">:</span> read
-      <span class="token key atrule">packages</span><span class="token punctuation">:</span> write
-
-    <span class="token key atrule">steps</span><span class="token punctuation">:</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v3
-      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Setup .NET SDK
-        <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/setup<span class="token punctuation">-</span>dotnet@v2
-      <span class="token comment"># Package the app into a linux-x64 container based on the dotnet/aspnet image</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Publish
-        <span class="token key atrule">run</span><span class="token punctuation">:</span> dotnet publish <span class="token punctuation">-</span><span class="token punctuation">-</span>os linux <span class="token punctuation">-</span><span class="token punctuation">-</span>arch x64 <span class="token punctuation">-</span><span class="token punctuation">-</span>configuration Release <span class="token punctuation">-</span>p<span class="token punctuation">:</span>PublishProfile=DefaultContainer
-      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Checkout repository
-        <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v3
-      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Login to GitHub Container Registry
-        <span class="token key atrule">uses</span><span class="token punctuation">:</span> docker/login<span class="token punctuation">-</span>action@v2
-        <span class="token key atrule">with</span><span class="token punctuation">:</span>
-          <span class="token key atrule">registry</span><span class="token punctuation">:</span> ghcr.io
-          <span class="token key atrule">username</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> github.actor <span class="token punctuation">}</span><span class="token punctuation">}</span>
-          <span class="token key atrule">password</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.GITHUB_TOKEN <span class="token punctuation">}</span><span class="token punctuation">}</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Tag built container with Github thing
-        <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
-          docker tag dockerless-docker:1.0.0 ghcr.io/evolvedlight/dockerless-docker:1.0.0</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Push built container to Github Package Repo
-        <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
-          docker push ghcr.io/evolvedlight/dockerless-docker:1.0.0</span>
-</code></pre></div><p>Here&#39;s now where the weird bit comes - on github the process to get a repository seems rather backward. You need to assign permissions for the repo to write images, but there&#39;s no way to do that <em>until</em> you&#39;ve pushed an image manually!</p><p>So let&#39;s go around the hoops - create the docker image locally, tag it, login to the Github repository and upload it:</p><div class="language-"><pre><code>dotnet publish --os linux --arch x64 --configuration Release -p:PublishProfile=DefaultContainer
-docker tag dockerless-docker:1.0.0 ghcr.io/evolvedlight/dockerless-docker:1.0.0
-docker login ghcr.io -u &lt;your username&gt;
-</code></pre></div><p>Enter a Personal access token that you can create on your github profile page, and finally push the image:</p><div class="language-"><pre><code>docker push ghcr.io/evolvedlight/dockerless-docker:1.0.0
-</code></pre></div><p>Now go to your packages page, for me that&#39;s <a href="https://github.com/evolvedlight?tab=packages" target="_blank" rel="noopener noreferrer">https://github.com/evolvedlight?tab=packages</a>. Click on the new package page that was created, and then go to the settings for it (for me <a href="https://github.com/users/evolvedlight/packages/container/dockerless-docker/settings" target="_blank" rel="noopener noreferrer">https://github.com/users/evolvedlight/packages/container/dockerless-docker/settings</a>)</p><p>Under &quot;Manage Actions access&quot; add your repository with access.</p><p>In the end it&#39;ll look like this:</p><p><img src="/images/github_actions_permission.png" alt="github permissions"></p><p>Finally, rerun the action and it should work.</p><p>In the next blob post we&#39;ll look at fixing the above docker build to push with the right version numbers and tags</p></div>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Initial VitePress Setup]]></title>
-            <link>https://brown.bg/posts/initial.html</link>
-            <guid>https://brown.bg/posts/initial.html</guid>
-            <pubDate>Thu, 14 Jul 2022 12:00:00 GMT</pubDate>
-            <description><![CDATA[<p>Based on the official VueJs blog, this is a SSG site</p>
-]]></description>
-            <content:encoded><![CDATA[<div><p>Based on the official VueJs blog, this is a SSG site</p><hr><h2 id="setup" tabindex="-1">Setup <a class="header-anchor" href="#setup" aria-hidden="true">#</a></h2><p>Take the VueJs blog repo and change as needed. Live reloads like a dream. Added a CNAME now and checking to see if it stays</p></div>]]></content:encoded>
+            <content:encoded><![CDATA[<p>How to setup a github build action that uses the dockerless build in .Net 7</p>
+<hr>
+<h2 id="background" tabindex="-1">Background <a class="header-anchor" href="#background" aria-label="Permalink to &quot;Background&quot;">&ZeroWidthSpace;</a></h2>
+<p>For me, one of the slowest parts of the fast build-test-deploy cycle was always waiting for docker builds to run. Especially with the practise of docker-in-docker builds which without special magic wouldn't cache anything, it could often take several minutes to create a docker application.
+.Net 7 promises to offer an alternative to this for simple apps - let's take a dive in.</p>
+<h3 id="setup" tabindex="-1">Setup <a class="header-anchor" href="#setup" aria-label="Permalink to &quot;Setup&quot;">&ZeroWidthSpace;</a></h3>
+<p>You'll need .Net 7 for this, which isn't currently released at time of writing. However, in theory you can take a .Net 6 application and use the .Net 7 SDK to build it already, however YMMV.</p>
+<p>With this installed, let's create a new app and get started! We're following along with <a href="https://devblogs.microsoft.com/dotnet/announcing-builtin-container-support-for-the-dotnet-sdk/" target="_blank" rel="noreferrer">https://devblogs.microsoft.com/dotnet/announcing-builtin-container-support-for-the-dotnet-sdk/</a> but with some changes</p>
+<h3 id="basic-app" tabindex="-1">Basic app <a class="header-anchor" href="#basic-app" aria-label="Permalink to &quot;Basic app&quot;">&ZeroWidthSpace;</a></h3>
+<div class="language-bash"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #FFCB6B">dotnet</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">new</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">webapi</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">-o</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">dockerless-docker</span></span>
+<span class="line"><span style="color: #82AAFF">cd</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">dockerless-docker</span></span></code></pre>
+</div><p>We also need to do a couple of things: because .Net 7 isn't out yet, we need a globals file to tell the github actions to use it</p>
+<p>That gives us our basic app - let's add a github actions build for it now, by adding the following:</p>
+<div class="language-json"><button title="Copy Code" class="copy"></button><span class="lang">json</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #89DDFF">&quot;</span><span style="color: #C792EA">sdk</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">{</span></span>
+<span class="line"><span style="color: #A6ACCD">        </span><span style="color: #89DDFF">&quot;</span><span style="color: #FFCB6B">version</span><span style="color: #89DDFF">&quot;</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">7.0.100-rc.2.22477.23</span><span style="color: #89DDFF">&quot;</span></span>
+<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #89DDFF">}</span></span>
+<span class="line"><span style="color: #89DDFF">}</span></span></code></pre>
+</div><p>We'll also need to add a reference to this tool:</p>
+<div class="language-bash"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #FFCB6B">dotnet</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">add</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">package</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">Microsoft.NET.Build.Containers</span></span></code></pre>
+</div><p>Now, add a github actions to <code>.github/workflows/whatever.yml</code></p>
+<div class="language-yaml"><button title="Copy Code" class="copy"></button><span class="lang">yaml</span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #F07178">name</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">Create and publish a Docker image</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #FF9CAC">on</span><span style="color: #89DDFF">:</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #F07178">push</span><span style="color: #89DDFF">:</span></span>
+<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #F07178">branches</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">[</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">*</span><span style="color: #89DDFF">&quot;</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">]</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #F07178">pull_request</span><span style="color: #89DDFF">:</span></span>
+<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #F07178">branches</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">[</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">&quot;</span><span style="color: #C3E88D">main</span><span style="color: #89DDFF">&quot;</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF">]</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F07178">env</span><span style="color: #89DDFF">:</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #F07178">REGISTRY</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">ghcr.io</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #F07178">IMAGE_NAME</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">${{ github.repository }}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F07178">jobs</span><span style="color: #89DDFF">:</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #F07178">build-and-push-image</span><span style="color: #89DDFF">:</span></span>
+<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #F07178">runs-on</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">ubuntu-latest</span></span>
+<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #F07178">permissions</span><span style="color: #89DDFF">:</span></span>
+<span class="line"><span style="color: #A6ACCD">      </span><span style="color: #F07178">contents</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">read</span></span>
+<span class="line"><span style="color: #A6ACCD">      </span><span style="color: #F07178">packages</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">write</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #F07178">steps</span><span style="color: #89DDFF">:</span></span>
+<span class="line"><span style="color: #A6ACCD">      </span><span style="color: #89DDFF">-</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">uses</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">actions/checkout@v3</span></span>
+<span class="line"><span style="color: #A6ACCD">      </span><span style="color: #89DDFF">-</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">name</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">Setup .NET SDK</span></span>
+<span class="line"><span style="color: #A6ACCD">        </span><span style="color: #F07178">uses</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">actions/setup-dotnet@v2</span></span>
+<span class="line"><span style="color: #89DDFF">      </span><span style="color: #676E95; font-style: italic"># Package the app into a linux-x64 container based on the dotnet/aspnet image</span></span>
+<span class="line"><span style="color: #A6ACCD">      </span><span style="color: #89DDFF">-</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">name</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">Publish</span></span>
+<span class="line"><span style="color: #A6ACCD">        </span><span style="color: #F07178">run</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">dotnet publish --os linux --arch x64 --configuration Release -p:PublishProfile=DefaultContainer</span></span>
+<span class="line"><span style="color: #A6ACCD">      </span><span style="color: #89DDFF">-</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">name</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">Checkout repository</span></span>
+<span class="line"><span style="color: #A6ACCD">        </span><span style="color: #F07178">uses</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">actions/checkout@v3</span></span>
+<span class="line"><span style="color: #A6ACCD">      </span><span style="color: #89DDFF">-</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">name</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">Login to GitHub Container Registry</span></span>
+<span class="line"><span style="color: #A6ACCD">        </span><span style="color: #F07178">uses</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">docker/login-action@v2</span></span>
+<span class="line"><span style="color: #A6ACCD">        </span><span style="color: #F07178">with</span><span style="color: #89DDFF">:</span></span>
+<span class="line"><span style="color: #A6ACCD">          </span><span style="color: #F07178">registry</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">ghcr.io</span></span>
+<span class="line"><span style="color: #A6ACCD">          </span><span style="color: #F07178">username</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">${{ github.actor }}</span></span>
+<span class="line"><span style="color: #A6ACCD">          </span><span style="color: #F07178">password</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">${{ secrets.GITHUB_TOKEN }}</span></span>
+<span class="line"><span style="color: #A6ACCD">      </span><span style="color: #89DDFF">-</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">name</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">Tag built container with Github thing</span></span>
+<span class="line"><span style="color: #A6ACCD">        </span><span style="color: #F07178">run</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF; font-style: italic">|</span></span>
+<span class="line"><span style="color: #C3E88D">          docker tag dockerless-docker:1.0.0 ghcr.io/evolvedlight/dockerless-docker:1.0.0</span></span>
+<span class="line"><span style="color: #A6ACCD">      </span><span style="color: #89DDFF">-</span><span style="color: #A6ACCD"> </span><span style="color: #F07178">name</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #C3E88D">Push built container to Github Package Repo</span></span>
+<span class="line"><span style="color: #A6ACCD">        </span><span style="color: #F07178">run</span><span style="color: #89DDFF">:</span><span style="color: #A6ACCD"> </span><span style="color: #89DDFF; font-style: italic">|</span></span>
+<span class="line"><span style="color: #C3E88D">          docker push ghcr.io/evolvedlight/dockerless-docker:1.0.0</span></span></code></pre>
+</div><p>Here's now where the weird bit comes - on github the process to get a repository seems rather backward. You need to assign permissions for the repo to write images, but there's no way to do that <em>until</em> you've pushed an image manually!</p>
+<p>So let's go around the hoops - create the docker image locally, tag it, login to the Github repository and upload it:</p>
+<div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #A6ACCD">dotnet publish --os linux --arch x64 --configuration Release -p:PublishProfile=DefaultContainer</span></span>
+<span class="line"><span style="color: #A6ACCD">docker tag dockerless-docker:1.0.0 ghcr.io/evolvedlight/dockerless-docker:1.0.0</span></span>
+<span class="line"><span style="color: #A6ACCD">docker login ghcr.io -u &lt;your username&gt;</span></span></code></pre>
+</div><p>Enter a Personal access token that you can create on your github profile page, and finally push the image:</p>
+<div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre v-pre class="shiki material-theme-palenight" ><code><span class="line"><span style="color: #A6ACCD">docker push ghcr.io/evolvedlight/dockerless-docker:1.0.0</span></span></code></pre>
+</div><p>Now go to your packages page, for me that's <a href="https://github.com/evolvedlight?tab=packages" target="_blank" rel="noreferrer">https://github.com/evolvedlight?tab=packages</a>.
+Click on the new package page that was created, and then go to the settings for it (for me <a href="https://github.com/users/evolvedlight/packages/container/dockerless-docker/settings" target="_blank" rel="noreferrer">https://github.com/users/evolvedlight/packages/container/dockerless-docker/settings</a>)</p>
+<p>Under &quot;Manage Actions access&quot; add your repository with access.</p>
+<p>In the end it'll look like this:</p>
+<p><img src="/images/github_actions_permission.png" alt="github permissions"></p>
+<p>Finally, rerun the action and it should work.</p>
+<p>In the next blob post we'll look at fixing the above docker build to push with the right version numbers and tags</p>
+]]></content:encoded>
         </item>
     </channel>
 </rss>
