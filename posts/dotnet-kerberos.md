@@ -5,6 +5,7 @@ author: Stephen Brown
 ---
 
 For the last few years at my workplace we've been using Kerberos authentication to connect to the on-prem SQL Server databases. On Windows this just worked like magic, as the services ran as a Windows domain user and so could connect to the database without any additional configuration. However, when moving to Kubernetes and Linux systems, this didn't work out of the box.
+
 ---
 
 Our initial solution was following this [red hat blog post](https://cloud.redhat.com/blog/kerberos-sidecar-container) which details how to setup a sidecar which keeps a kerberos token valid. This worked for a number of years but did have some problems:
