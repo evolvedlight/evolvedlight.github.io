@@ -4,7 +4,7 @@
         <title>Steve@brown.bg</title>
         <link>https://brown.bg</link>
         <description>Steve's blog</description>
-        <lastBuildDate>Fri, 22 Sep 2023 20:43:53 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 22 Sep 2023 21:13:34 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -19,8 +19,12 @@
             <link>https://brown.bg/posts/scaling-masstransit-jobs</link>
             <guid>https://brown.bg/posts/scaling-masstransit-jobs</guid>
             <pubDate>Mon, 04 Sep 2023 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[<p>We have an interesting challenge in some of our microservices - we run lots and lots of microservices, all using a relatively small amount of memory, but the usage patterns may be unusual.
+            <description><![CDATA[<p>We have an interesting challenge in some of our microservices - we run lots and lots of microservices, all using a relatively small amount of memory, but the usage patterns may be unusual.
 All these microservices talk MassTransit - some also have external triggers, API endpoints or scheduled jobs.</p>
+]]></description>
+            <content:encoded><![CDATA[<h2 id="we-have-an-interesting-challenge-in-some-of-our-microservices-we-run-lots-and-lots-of-microservices-all-using-a-relatively-small-amount-of-memory-but-the-usage-patterns-may-be-unusual-all-these-microservices-talk-masstransit-some-also-have-external-triggers-api-endpoints-or-scheduled-jobs" tabindex="-1">We have an interesting challenge in some of our microservices - we run lots and lots of microservices, all using a relatively small amount of memory, but the usage patterns may be unusual.
+All these microservices talk MassTransit - some also have external triggers, API endpoints or scheduled jobs. <a class="header-anchor" href="#we-have-an-interesting-challenge-in-some-of-our-microservices-we-run-lots-and-lots-of-microservices-all-using-a-relatively-small-amount-of-memory-but-the-usage-patterns-may-be-unusual-all-these-microservices-talk-masstransit-some-also-have-external-triggers-api-endpoints-or-scheduled-jobs" aria-label="Permalink to &quot;We have an interesting challenge in some of our microservices - we run lots and lots of microservices, all using a relatively small amount of memory, but the usage patterns may be unusual.
+All these microservices talk MassTransit - some also have external triggers, API endpoints or scheduled jobs.&quot;">&ZeroWidthSpace;</a></h2>
 <p>They run like this:</p>
 <ul>
 <li>Most are processing constantly lots of small messages. These are no problem.</li>
@@ -159,7 +163,9 @@ First, you need a secret containing the RabbitMQ connection string:</p>
             <link>https://brown.bg/posts/dotnet-kerberos</link>
             <guid>https://brown.bg/posts/dotnet-kerberos</guid>
             <pubDate>Sat, 05 Aug 2023 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[<p>For the last few years at my workplace we've been using Kerberos authentication to connect to the on-prem SQL Server databases. On Windows this just worked like magic, as the services ran as a Windows domain user and so could connect to the database without any additional configuration. However, when moving to Kubernetes and Linux systems, this didn't work out of the box.</p>
+            <description><![CDATA[<p>For the last few years at my workplace we've been using Kerberos authentication to connect to the on-prem SQL Server databases. On Windows this just worked like magic, as the services ran as a Windows domain user and so could connect to the database without any additional configuration. However, when moving to Kubernetes and Linux systems, this didn't work out of the box.</p>
+]]></description>
+            <content:encoded><![CDATA[<h2 id="for-the-last-few-years-at-my-workplace-we-ve-been-using-kerberos-authentication-to-connect-to-the-on-prem-sql-server-databases-on-windows-this-just-worked-like-magic-as-the-services-ran-as-a-windows-domain-user-and-so-could-connect-to-the-database-without-any-additional-configuration-however-when-moving-to-kubernetes-and-linux-systems-this-didn-t-work-out-of-the-box" tabindex="-1">For the last few years at my workplace we've been using Kerberos authentication to connect to the on-prem SQL Server databases. On Windows this just worked like magic, as the services ran as a Windows domain user and so could connect to the database without any additional configuration. However, when moving to Kubernetes and Linux systems, this didn't work out of the box. <a class="header-anchor" href="#for-the-last-few-years-at-my-workplace-we-ve-been-using-kerberos-authentication-to-connect-to-the-on-prem-sql-server-databases-on-windows-this-just-worked-like-magic-as-the-services-ran-as-a-windows-domain-user-and-so-could-connect-to-the-database-without-any-additional-configuration-however-when-moving-to-kubernetes-and-linux-systems-this-didn-t-work-out-of-the-box" aria-label="Permalink to &quot;For the last few years at my workplace we've been using Kerberos authentication to connect to the on-prem SQL Server databases. On Windows this just worked like magic, as the services ran as a Windows domain user and so could connect to the database without any additional configuration. However, when moving to Kubernetes and Linux systems, this didn't work out of the box.&quot;">&ZeroWidthSpace;</a></h2>
 <p>Our initial solution was following this <a href="https://cloud.redhat.com/blog/kerberos-sidecar-container" target="_blank" rel="noreferrer">red hat blog post</a> which details how to setup a sidecar which keeps a kerberos token valid. This worked for a number of years but did have some problems:</p>
 <ul>
 <li>We ran 100+ containers and each needed a sidecar - this cost a few gigabytes of memory and some CPU allowance</li>
@@ -209,7 +215,9 @@ First, you need a secret containing the RabbitMQ connection string:</p>
             <link>https://brown.bg/posts/init7-tv7</link>
             <guid>https://brown.bg/posts/init7-tv7</guid>
             <pubDate>Fri, 04 Aug 2023 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[<p>If you're an Init7 TV customer and you want to use the Unify Dream Machine as your IPTV receiver, I figured it out for you! Here's a step-by-step guide to help you get started.</p>
+            <description><![CDATA[<p>If you're an Init7 TV customer and you want to use the Unify Dream Machine as your IPTV receiver, I figured it out for you! Here's a step-by-step guide to help you get started.</p>
+]]></description>
+            <content:encoded><![CDATA[<h2 id="if-you-re-an-init7-tv-customer-and-you-want-to-use-the-unify-dream-machine-as-your-iptv-receiver-i-figured-it-out-for-you-here-s-a-step-by-step-guide-to-help-you-get-started" tabindex="-1">If you're an Init7 TV customer and you want to use the Unify Dream Machine as your IPTV receiver, I figured it out for you! Here's a step-by-step guide to help you get started. <a class="header-anchor" href="#if-you-re-an-init7-tv-customer-and-you-want-to-use-the-unify-dream-machine-as-your-iptv-receiver-i-figured-it-out-for-you-here-s-a-step-by-step-guide-to-help-you-get-started" aria-label="Permalink to &quot;If you're an Init7 TV customer and you want to use the Unify Dream Machine as your IPTV receiver, I figured it out for you! Here's a step-by-step guide to help you get started.&quot;">&ZeroWidthSpace;</a></h2>
 <h2 id="step-1-update-to-the-newest-dream-machine" tabindex="-1">Step 1: Update to the Newest Dream Machine <a class="header-anchor" href="#step-1-update-to-the-newest-dream-machine" aria-label="Permalink to &quot;Step 1: Update to the Newest Dream Machine&quot;">&ZeroWidthSpace;</a></h2>
 <p>Before you begin, make sure your Unify Dream Machine is updated to the latest firmware version. You can check for updates by logging into the Unify Dream Machine web interface and navigating to the &quot;Settings&quot; page.
 Your version needs to be higher than <a href="https://community.ui.com/releases/UniFi-Network-Application-7-4-156/15ac6260-9cd1-4ac3-a91c-4880c1c87882" target="_blank" rel="noreferrer">&quot;UniFi Network Application 7.4.156&quot;</a>.</p>
