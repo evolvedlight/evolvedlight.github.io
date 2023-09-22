@@ -6,6 +6,7 @@ author: Stephen Brown
 
 We have an interesting challenge in some of our microservices - we run lots and lots of microservices, all using a relatively small amount of memory, but the usage patterns may be unusual.
 All these microservices talk MassTransit - some also have external triggers, API endpoints or scheduled jobs.
+---
 
 They run like this:
  - Most are processing constantly lots of small messages. These are no problem.

@@ -5,6 +5,7 @@ author: Stephen Brown
 ---
 
 If you're an Init7 TV customer and you want to use the Unify Dream Machine as your IPTV receiver, I figured it out for you! Here's a step-by-step guide to help you get started.
+---
 
 ## Step 1: Update to the Newest Dream Machine
 
