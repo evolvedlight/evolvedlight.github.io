@@ -14,7 +14,7 @@
     "@types/node": "^22.10.6",
     "feed": "^4.2.1",
     "gray-matter": "^4.0.2",
-    "tailwindcss": "^3.4.14",
+    "tailwindcss": "^3.4.17",
     "vitepress": "1.5.0",
     "vue": "^3.5.12"
   }
