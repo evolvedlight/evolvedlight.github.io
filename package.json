@@ -9,7 +9,7 @@
     "serve": "vitepress serve"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.15",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/markdown-it": "14.1.2",
     "@types/node": "^22.10.6",
     "feed": "^4.2.1",
