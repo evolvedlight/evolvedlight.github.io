@@ -1,10 +1,12 @@
 ---
-title: My Swiss Citizenship Timeline (In Progress)
+title: Zurich 2025 Citizenship Timeline
 date: 2025-08-16
 author: Stephen Brown
 ---
 
 This is the timeline of my journey towards obtaining Swiss citizenship. I will update this document as I progress through the various phases of the application process.
+The process is different per Kanton, and changed a couple of years ago, so I document it here so people can see what the normal timeline is line.
+I'm a UK citizen right now, but the process is relatively similar for other nationalities, with some differences in the required documents for the Zivilstandsregister (Civil Registry).
 The official process and website is here for Zurich: [Ordentliche Einbürgerung](https://www.zh.ch/de/migration-integration/einbuergerung/ordentliche-einbuergerung.html).
 
 ## My Timeline So Far
