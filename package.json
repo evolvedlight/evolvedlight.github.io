@@ -11,11 +11,11 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
     "@types/markdown-it": "14.1.2",
-    "@types/node": "^22.10.6",
-    "feed": "^4.2.1",
-    "gray-matter": "^4.0.2",
+    "@types/node": "^22.17.2",
+    "feed": "^4.2.2",
+    "gray-matter": "^4.0.3",
     "tailwindcss": "^3.4.17",
     "vitepress": "1.5.0",
-    "vue": "^3.5.13"
+    "vue": "^3.5.18"
   }
 }
