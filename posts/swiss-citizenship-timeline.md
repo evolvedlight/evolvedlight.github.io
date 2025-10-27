@@ -21,7 +21,9 @@ The official process and website is here for Zurich: [Ordentliche Einbürgerung]
 | Sent documents by post to Zurich Civil registry office |  | 2025-06-16 | Must be via post, they will confirm by email a day or so later |
 | Confirmation form from Civil Registry office |  | ~2025-08-01 | They ask you by post to sign and confirm the details. I was on holiday so only sent it back on the 12th |
 | Civil status certificate recieved by Post | Personenstandsausweis | 2025-08-16 | Confirmation of entry in Civil registry |
+| Created application at https://naturalization.services.zh.ch/  | eEinbürgerung | 2025-10-17 | This was a bit later than the 10 year mark, as I was waiting for my partner |
+| Finished filling in, and submitted eEinbürgerung  | eEinbürgerung eingereicht | 2025-10-28 | Most was very easy, but needed to write a page about hobbies, social interactions, clubs and so on |
 
-That's it so far - next step is to apply for Citizenship but this needs to wait for September 2025 when I will have been in Switzerland for 10 years.
+Now it's time to wait for the next steps, which could be 3-6 months for the Grundkenntnistest invitation.
 
 (Will update as progress happens.)
