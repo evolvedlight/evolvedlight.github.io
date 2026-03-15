@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import tailwind from '@tailwindcss/vite'
 import { genFeed } from './genFeed.js'
 
 export default defineConfig({
@@ -17,6 +18,9 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ]
+  },
+  vite: {
+    plugins: [tailwind()]
   },
   buildEnd: genFeed
 })
