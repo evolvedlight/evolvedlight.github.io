@@ -1,4 +1,4 @@
-This is my person blog.
+This is my personal blog.
 
 To build:
  - Install pnpm
