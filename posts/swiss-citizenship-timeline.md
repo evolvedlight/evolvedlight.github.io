@@ -24,7 +24,9 @@ The official process and website is here for Zurich: [Ordentliche Einbürgerung]
 | Created application at https://naturalization.services.zh.ch/  | eEinbürgerung | 2025-10-17 | This was a bit later than the 10 year mark, as I was waiting for my partner |
 | Finished filling in, and submitted eEinbürgerung  | eEinbürgerung eingereicht | 2025-10-28 | Most was very easy, but needed to write a page about hobbies, social interactions, clubs and so on |
 | Update online: Moved into pre-examination | Vorprüfung | 2026-02-05 | Nothing for me to do - just a text/email notification |
+| Update online: Moved into Municipal Naturalization Test | Prüfung Gemeinde | 2026-05-06 | Nothing for me to do - just a text/email notification |
 
-Now it's time to wait for the next steps, which could be 3-6 months for the Grundkenntnistest invitation.
+
+Now it's time to wait for the next steps, which could be 2-3 months for the Grundkenntnistest invitation.
 
 (Will update as progress happens.)
