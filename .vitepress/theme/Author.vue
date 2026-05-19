@@ -32,7 +32,7 @@ const { frontmatter } = useData()
               <a
                 :href="'https://twitter.com/' + frontmatter.twitter"
                 target="_blank"
-                rel="noopnener noreferrer"
+                rel="noopener noreferrer"
                 class="link"
                 >{{ frontmatter.twitter }}</a
               >

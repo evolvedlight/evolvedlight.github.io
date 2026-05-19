@@ -1,10 +1,10 @@
 ---
-title: Runing Blazor wasm on Github pages
+title: Running Blazor WASM on GitHub Pages
 date: 2024-03-09
 author: Stephen Brown
 ---
 
-Create a new blazor wasm project
+Create a new Blazor WASM project
 
 dotnet workload install wasm-tools
 

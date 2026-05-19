@@ -21,18 +21,18 @@ First, we have the publisher. This could be anything and in our example it's nor
 
 ```c#
 var endpoint = app.Services.GetRequiredService<IPublishEndpoint>();
-endpoint.Publish(new ProcessVeryLargeFileTrigger(fileName)
+await endpoint.Publish(new ProcessVeryLargeFileTrigger(fileName));
 ```
 
 `ProcessVeryLargeFileTrigger` is defined in an assembly that both producer and consumer can use.
 
-Now, we need an entrypoint that allows us to read one message from the MassTransit queue (rabbit is used here), give it to MassTransit, then exit.
+Now, we need an entrypoint that allows us to read one message from the MassTransit queue (RabbitMQ is used here), give it to MassTransit, then exit.
 
-First, our entrypoint needs to have a masstransit consumer, in memory.
+First, our entrypoint needs to have a MassTransit consumer, in memory.
 
 ```c#
 
-# Setup 
+// Setup 
 HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
 builder.Services.AddMassTransit(x =>
 {
@@ -41,13 +41,13 @@ builder.Services.AddMassTransit(x =>
     x.UsingInMemory();
     x.AddConfigureEndpointsCallback((_, cfg) =>
     {
-        # Optional, we like this format
+        // Optional, we like this format
         cfg.UseRawJsonSerializer(isDefault: true);
     });
 });
 ```
 
-Next, we need to connect and bind to a rabbit queue:
+Next, we need to connect and bind to a RabbitMQ queue:
 
 ```c#
 ConnectionFactory factory = new ConnectionFactory
@@ -70,7 +70,7 @@ channel.QueueDeclare(queueName, false, false, false, null);
 channel.QueueBind(queueName, exchangeName, routingKey, null);
 ```
 
-After this, we need to try and get a single message from Rabbit. If there's nothing here, we exit.
+After this, we need to try and get a single message from RabbitMQ. If there's nothing here, we exit.
 
 ```c#
 BasicGetResult message = channel.BasicGet("LongRunningJobs", false);
@@ -87,25 +87,25 @@ We can then build our normal app and inject the RabbitMQ message into it:
 var app = builder.Build();
 await app.StartAsync();
 using var scope = app.Services.CreateScope();
-var ep = scope.ServiceProvider.GetRequiredService<ProcessVeryLargeFileConsumer<SubmitOrderConsumer>>();
+var ep = scope.ServiceProvider.GetRequiredService<ProcessVeryLargeFileConsumer>();
 ```
 
 Next, inject the message:
 ```c#
 try
 {
-    var messageBytes = message.Body.ToArray()
-    var headers = result.BasicProperties.Headers.AsReadOnly();
-    await ep.Dispatch(result.Body.ToArray(), headers, CancellationToken.None);
-    channel.BasicAck(result.DeliveryTag, false);
+    var messageBytes = message.Body.ToArray();
+    var headers = message.BasicProperties.Headers;
+    await ep.Dispatch(messageBytes, headers, CancellationToken.None);
+    channel.BasicAck(message.DeliveryTag, false);
 } 
 catch 
 {
-    channel.BasicNack(result.DeliveryTag, false, true);
+    channel.BasicNack(message.DeliveryTag, false, true);
 }
 ```
 
-Finally, we can cleanup:
+Finally, we can clean up:
 ```c#
 channel.Close();
 conn.Close();

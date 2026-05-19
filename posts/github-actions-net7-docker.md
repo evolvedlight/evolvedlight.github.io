@@ -5,18 +5,18 @@ author: Stephen Brown
 twitter: '@evolvedlight'
 ---
 
-How to setup a github build action that uses the dockerless build in .Net 7
+How to set up a GitHub build action that uses the dockerless build in .NET 7
 
 ---
 
 ## Background
 
-For me, one of the slowest parts of the fast build-test-deploy cycle was always waiting for docker builds to run. Especially with the practise of docker-in-docker builds which without special magic wouldn't cache anything, it could often take several minutes to create a docker application.
-.Net 7 promises to offer an alternative to this for simple apps - let's take a dive in.
+For me, one of the slowest parts of the fast build-test-deploy cycle was always waiting for docker builds to run. Especially with the practice of docker-in-docker builds which without special magic wouldn't cache anything, it could often take several minutes to create a docker application.
+.NET 7 promises to offer an alternative to this for simple apps - let's take a dive in.
 
 ### Setup
 
-You'll need .Net 7 for this, which isn't currently released at time of writing. However, in theory you can take a .Net 6 application and use the .Net 7 SDK to build it already, however YMMV.
+You'll need .NET 7 for this, which isn't currently released at time of writing. However, in theory you can take a .NET 6 application and use the .NET 7 SDK to build it already; however, YMMV.
 
 With this installed, let's create a new app and get started! We're following along with https://devblogs.microsoft.com/dotnet/announcing-builtin-container-support-for-the-dotnet-sdk/ but with some changes
 
@@ -27,9 +27,9 @@ dotnet new webapi -o dockerless-docker
 cd dockerless-docker
 ```
 
-We also need to do a couple of things: because .Net 7 isn't out yet, we need a globals file to tell the github actions to use it
+We also need to do a couple of things: because .NET 7 isn't out yet, we need a global.json file to tell GitHub Actions to use it.
 
-That gives us our basic app - let's add a github actions build for it now, by adding the following:
+That gives us our basic app - let's add a GitHub Actions build for it now, by adding the following:
 ```json
 {
     "sdk": {
@@ -43,7 +43,7 @@ We'll also need to add a reference to this tool:
 dotnet add package Microsoft.NET.Build.Containers
 ```
 
-Now, add a github actions to ```.github/workflows/whatever.yml```
+Now, add a GitHub Actions workflow to ```.github/workflows/whatever.yml```
 
 ```yaml
 name: Create and publish a Docker image
@@ -73,25 +73,23 @@ jobs:
       # Package the app into a linux-x64 container based on the dotnet/aspnet image
       - name: Publish
         run: dotnet publish --os linux --arch x64 --configuration Release -p:PublishProfile=DefaultContainer
-      - name: Checkout repository
-        uses: actions/checkout@v3
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Tag built container with Github thing
+      - name: Tag built container with GitHub metadata
         run: |
           docker tag dockerless-docker:1.0.0 ghcr.io/evolvedlight/dockerless-docker:1.0.0
-      - name: Push built container to Github Package Repo
+      - name: Push built container to GitHub Package Repo
         run: |
           docker push ghcr.io/evolvedlight/dockerless-docker:1.0.0
 ```
 
-Here's now where the weird bit comes - on github the process to get a repository seems rather backward. You need to assign permissions for the repo to write images, but there's no way to do that _until_ you've pushed an image manually!
+Here's now where the weird bit comes - on GitHub the process to get a repository seems rather backward. You need to assign permissions for the repo to write images, but there's no way to do that _until_ you've pushed an image manually!
 
-So let's go around the hoops - create the docker image locally, tag it, login to the Github repository and upload it:
+So let's go around the hoops - create the docker image locally, tag it, login to the GitHub repository and upload it:
 
 ```
 dotnet publish --os linux --arch x64 --configuration Release -p:PublishProfile=DefaultContainer
@@ -99,7 +97,7 @@ docker tag dockerless-docker:1.0.0 ghcr.io/evolvedlight/dockerless-docker:1.0.0
 docker login ghcr.io -u <your username>
 ```
 
-Enter a Personal access token that you can create on your github profile page, and finally push the image:
+Enter a Personal access token that you can create on your GitHub profile page, and finally push the image:
 
 ```
 docker push ghcr.io/evolvedlight/dockerless-docker:1.0.0
@@ -112,8 +110,8 @@ Under "Manage Actions access" add your repository with access.
 
 In the end it'll look like this:
 
-![github permissions](/images/github_actions_permission.png)
+![GitHub permissions](/images/github_actions_permission.png)
 
 Finally, rerun the action and it should work.
 
-In the next blob post we'll look at fixing the above docker build to push with the right version numbers and tags
+In the next blog post we'll look at fixing the above docker build to push with the right version numbers and tags
