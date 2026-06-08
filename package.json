@@ -10,7 +10,7 @@
     "serve": "vitepress serve"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.0",
     "@types/markdown-it": "14.1.2",
     "@types/node": "^25.9.1",
