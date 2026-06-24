@@ -8,15 +8,15 @@ For the last few years at my workplace we've been using Kerberos authentication 
 
 ---
 
-Our initial solution was following this [red hat blog post](https://cloud.redhat.com/blog/kerberos-sidecar-container) which details how to setup a sidecar which keeps a kerberos token valid. This worked for a number of years but did have some problems:
+Our initial solution was following this [Red Hat blog post](https://cloud.redhat.com/blog/kerberos-sidecar-container) which details how to set up a sidecar which keeps a kerberos token valid. This worked for a number of years but did have some problems:
 
  - We ran 100+ containers and each needed a sidecar - this cost a few gigabytes of memory and some CPU allowance
  - When the token was being refreshed, it was not available for a few milliseconds
  - It was extra hassle and created slightly larger deployments and more complex Deployment configs.
 
-When investigating a seperate issue (dotnet 7 caused some transient kerberos faults) we realised that actually the whole sidecar approach was completely unneccessary! This post will give the minimum you actually need to call Keberos services from Linux
+When investigating a separate issue (dotnet 7 caused some transient kerberos faults) we realised that actually the whole sidecar approach was completely unnecessary! This post will give the minimum you actually need to call Kerberos services from Linux
 
-1) You'll need to add the keberos tools to your docker image. Maybe you have a base image you share, maybe not. For alpine images:
+1) You'll need to add the kerberos tools to your docker image. Maybe you have a base image you share, maybe not. For alpine images:
 
 ```RUN apk add --no-cache krb5```
 

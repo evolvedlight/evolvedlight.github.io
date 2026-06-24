@@ -13,8 +13,7 @@ const { page, frontmatter } = useData()
       <nav class="flex justify-between items-center py-10 font-bold">
         <a class="text-xl" href="/" aria-label="steve's blog">
           <img
-            class="inline-block mr-2"
-            style="width: 100px; height: 100px"
+            class="inline-block mr-2 w-[100px] h-[100px]"
             alt="logo"
             src="/logo.webp"
           />
