@@ -25,6 +25,8 @@ The official process and website is here for Zurich: [Ordentliche Einbürgerung]
 | Finished filling in, and submitted eEinbürgerung  | eEinbürgerung eingereicht | 2025-10-28 | Most was very easy, but needed to write a page about hobbies, social interactions, clubs and so on |
 | Update online: Moved into pre-examination | Vorprüfung | 2026-02-05 | Nothing for me to do - just a text/email notification |
 | Update online: Moved into Municipal Naturalization Test | Prüfung Gemeinde | 2026-05-06 | Nothing for me to do - just a text/email notification |
+| Letter from Canton and letter from city | Zustellung an Ihre Wohngeminde, Wann werden auch Sie Schweizer*in | 2026-05-18 | Notification that the Canton has transferred the application to the Gemeinde. Nothing for me to do |
+| Test booklet and invitation | Ihr Einbürgerungsverfahren, Einladung zum Grundkenntnistest | 2026-06-24 | Test booklet and invitation to test - with available slots being earliest in August |
 
 
 Now it's time to wait for the next steps, which could be 2-3 months for the Grundkenntnistest invitation.
