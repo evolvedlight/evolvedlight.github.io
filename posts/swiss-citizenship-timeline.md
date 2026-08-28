@@ -27,8 +27,8 @@ The official process and website is here for Zurich: [Ordentliche Einbürgerung]
 | Update online: Moved into Municipal Naturalization Test | Prüfung Gemeinde | 2026-05-06 | Nothing for me to do - just a text/email notification |
 | Letter from Canton and letter from city | Zustellung an Ihre Wohngeminde, Wann werden auch Sie Schweizer*in | 2026-05-18 | Notification that the Canton has transferred the application to the Gemeinde. Nothing for me to do |
 | Test booklet and invitation | Ihr Einbürgerungsverfahren, Einladung zum Grundkenntnistest | 2026-06-24 | Test booklet and invitation to test - with available slots being earliest in August |
+| Test done | Grundkenntnistest | 2026-08-17 | Practice was easy given the app and the booklet. Timeline given there was 4-5 months until the bills, and 8-10 months until the process completes |
 
-
-Now it's time to wait for the next steps, which could be 2-3 months for the Grundkenntnistest invitation.
+So now, we wait for bills.
 
 (Will update as progress happens.)
